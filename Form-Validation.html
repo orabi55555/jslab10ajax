@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <title>JSlab10</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+
+
+</head>
+
+<body >
+<div class="container" id="firstdiv">
+  
+    <div class="row justify-content-center " id="vertical">
+        <div class="col-4  p-5 rounded-4" id="color">
+
+        <form id="validation" class="justify-content-center">
+          
+            <legend>LOGIN FORM</legend>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="email" id="email" class="form-control" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+              <label for="pw" class="form-label">Password</label>
+              <input type="password" id="pw" class="form-control" placeholder="Enter your password">
+            </div>
+         
+            <button type="submit" id="btn"  class="btn border w-75 mx-5   ">login</button>
+          
+        </form>
+</div>
+      </div>
+        
+  </div>
+      <script >
+      
+      document.body.style.backgroundColor = "blue";
+      var rowdiv=document.getElementById('vertical');
+      rowdiv.style.marginTop="17%";
+      var coldiv=document.getElementById('color');
+      coldiv.style.backgroundColor="brown";
+      var btn =document.getElementById('btn');
+      btn.style.backgroundColor="blue";
+      btn.style.color="white";
+      btn.style.outline="none";
+      var emailinput=document.getElementById('email');
+      
+      var pwinput=document.getElementById('pw');
+      var pwregex=/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}/;
+      var emailregex= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+     
+      
+      document.getElementById("validation").onsubmit=function(){
+        let validationResult=pwregex.test(pwinput.value);
+        let validationResult1=emailregex.test(emailinput.value);
+        if(validationResult ==false ||validationResult1==false){
+        
+           
+          if (emailinput.value== "" && pwinput.value=="") {
+                 alert("please enter your data");
+             }
+            else if(emailinput.value==""){
+               alert("please enter your email");
+        }
+             else  if(pwinput.value==""){
+               alert("please enter your password");
+             }
+            else if(validationResult ==false){
+            alert("your password must have small and capital characters and numbers")
+          }
+         
+          return false;
+        }
+        else{
+          alert("Login successfully");
+       return true;      }
+      
+      }
+      
+
+      </script>
+</body>
+
+</html>
